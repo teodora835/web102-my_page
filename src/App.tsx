@@ -136,10 +136,10 @@ useEffect(() => {
   const currentTheme = themes[theme as keyof typeof themes];
  useEffect(() => {
   fetch("https://api.github.com/repos/teodora835/web102-my_page/commits")
-    .then((response) => response.json())
+   .then((response) => response.json())
     .then((data) => {
       if (Array.isArray(data)) {
-        setCommits(data.slice(0, 5));
+        setCommits(data);
       } else {
         console.error("GitHub API error:", data);
       }

@@ -773,3 +773,8 @@ body {
   background: #dfe8d6;
   color: #12261a;
 }
+.github-left .btn-outline:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
