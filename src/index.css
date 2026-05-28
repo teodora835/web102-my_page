@@ -554,3 +554,94 @@ body {
   --secondary: #ede0d4;
   --dark-section: #5e503f;
 }
+
+.github-section {
+  padding: 100px 72px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  background: var(--bg);
+}
+
+.github-title {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.github-text {
+  color: #6f756d;
+  line-height: 1.8;
+  margin-bottom: 34px;
+  max-width: 420px;
+}
+
+.github-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.github-right img {
+  width: 100%;
+  border-radius: 24px;
+}
+.github-card {
+  background: white;
+  padding: 34px;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(18, 38, 26, 0.08);
+}
+
+.github-card h3 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
+
+.github-card p {
+  color: #5d6d57;
+  line-height: 1.7;
+}
+
+.github-card img {
+  width: 100%;
+  margin: 20px 0;
+}
+.commits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.commit-card {
+  display: block;
+  background: white;
+  padding: 24px;
+  border-radius: 22px;
+  text-decoration: none;
+  color: #12261a;
+  box-shadow: 0 12px 35px rgba(18, 38, 26, 0.08);
+  transition: 0.3s ease;
+}
+
+.commit-card:hover {
+  transform: translateY(-6px);
+}
+
+.commit-card h3 {
+  margin: 0 0 10px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+}
+
+.commit-card p {
+  margin: 0 0 10px;
+  color: #5d6d57;
+}
+
+.commit-card span {
+  font-size: 13px;
+  font-weight: 800;
+  color: #6f875f;
+}

@@ -81,6 +81,17 @@ const themes = {
     dark: "#5e503f",
   },
 };
+type Commit = {
+  sha: string;
+  commit: {
+    message: string;
+    author: {
+      name: string;
+      date: string;
+    };
+  };
+  html_url: string;
+};
 function App() {
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -88,6 +99,7 @@ function App() {
   const [activeCert, setActiveCert] = useState(0);
   const [selectedCert, setSelectedCert] = useState<(typeof certificates)[0] | null>(null);
   const [theme, setTheme] = useState("forest");
+  const [commits, setCommits] = useState<Commit[]>([]);
   const nextCert = () => {
   setActiveCert((current) => (current + 1) % certificates.length);
 };
@@ -117,6 +129,20 @@ useEffect(() => {
   localStorage.setItem("portfolio-theme", theme);
 }, [theme]);
   const currentTheme = themes[theme as keyof typeof themes];
+ useEffect(() => {
+  fetch("https://api.github.com/repos/teodora835/web102-my_page/commits")
+    .then((response) => response.json())
+    .then((data) => {
+      if (Array.isArray(data)) {
+        setCommits(data.slice(0, 5));
+      } else {
+        console.error("GitHub API error:", data);
+      }
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}, []);
   return (
     <main className={`app theme-${theme}`}>
 
@@ -209,6 +235,48 @@ useEffect(() => {
           <button>Vezi detalii →</button>
         </div>
       </article>
+    ))}
+  </div>
+</section>
+    <section id="github" className="github-section">
+  <div className="github-left">
+    <p className="section-label">Activitate GitHub</p>
+
+    <h2 className="section-title github-title">
+      Istoric commit-uri
+    </h2>
+
+    <p className="github-text">
+      Mai jos sunt afișate cele mai recente commit-uri din repository-ul acestui proiect,
+      folosind GitHub API.
+    </p>
+
+    <a
+      href="https://github.com/teodora835/web102-my_page"
+      target="_blank"
+      className="btn btn-outline"
+    >
+      Vezi repository-ul
+    </a>
+  </div>
+
+  <div className="commits-list">
+    {commits.map((item) => (
+      <a
+        key={item.sha}
+        href={item.html_url}
+        target="_blank"
+        className="commit-card"
+      >
+        <h3>{item.commit.message}</h3>
+
+        <p>
+          {item.commit.author.name} ·{" "}
+          {new Date(item.commit.author.date).toLocaleDateString("ro-RO")}
+        </p>
+
+        <span>{item.sha.substring(0, 7)}</span>
+      </a>
     ))}
   </div>
 </section>
