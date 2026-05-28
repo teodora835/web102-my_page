@@ -2,21 +2,23 @@ import { useEffect, useState } from "react";
 const projects = [
   {
     title: "Ticket Management System",
-    desc: "Sistem modular de issue tracking construit în Java folosind design patterns și procesare JSON.",
+    desc: "Designed a modular issue-tracking backend supporting tickets, users, milestones and comments with JSON-based command processing.",
     stack: "Java • OOP • Design Patterns",
-    img: "https://placehold.co/700x420/6f875f/ffffff?text=Ticket+System",
+    img: "/images/ticket-system.png",
   },
+
   {
     title: "DraWar AI Game",
-    desc: "Joc multiplayer de desen cu recunoaștere AI folosind Flask, PyTorch și Socket.IO.",
+    desc: "Developed the interactive drawing interface using HTML, CSS and Canvas API, integrated with Flask backend and PyTorch CNN recognition.",
     stack: "JavaScript • Flask • PyTorch",
-    img: "https://placehold.co/700x420/12261a/ffffff?text=DraWar+AI",
+    img: "/images/drawar.png",
   },
+
   {
-    title: "E-commerce Platform",
-    desc: "Aplicație full-stack Flask cu filtrare produse, coș de cumpărături și order management.",
+    title: "E-commerce Web Application",
+    desc: "Built a full-stack web application with product filtering, sorting and cart management using Flask and Bootstrap.",
     stack: "Python • Flask • Bootstrap",
-    img: "https://placehold.co/700x420/dfe8d6/12261a?text=E-commerce",
+    img: "/images/ecommerce.png",
   },
 ];
 const certificates = [
@@ -154,51 +156,56 @@ useEffect(() => {
           </div>
 
           <div className="nav-links">
-            <a href="#projects">Proiecte</a>
+            <a href="#projects">Projects</a>
             <a href="#github">GitHub</a>
-            <a href="#cv">CV</a>
+            <a href="#cv">Certificates</a>
           </div>
           <div className="theme-switcher">
           <button onClick={() => setTheme("forest")}>Forest</button>
 
-          <button onClick={() => setTheme("darkMode")}>Dark</button>
+          <button onClick={() => setTheme("darkMode")}>DarkForest</button>
 
           <button onClick={() => setTheme("cream")}>Cream</button>
           </div>
           <a href="/cv.pdf" download className="btn btn-primary">
-            Descarcă CV
+            Download CV
           </a>
         </nav>
 
         <div className="hero-grid">
           <div>
-            <p className="eyebrow">Bună, sunt</p>
+            <p className="eyebrow">Hello, I'm</p>
 
             <h1>
               Teodora <br /> Cretoiu
             </h1>
 
             <p className="hero-text">
-              Studentă la Automatică și Calculatoare, pasionată de software engineering,
-              UI design și aplicații interactive. Construiesc proiecte full-stack,
-              simulări și aplicații AI cu focus pe experiența utilizatorului.
+              Computer Science student passionate about software engineering, UI design, 
+              and interactive applications. I build full-stack projects, simulations, and
+               AI-powered experiences with a strong focus on usability.
             </p>
 
             <div className="hero-actions">
               <button onClick={scrollToProjects} className="btn btn-primary">
-                Vezi proiectele ↓
+                View Projects ↓
               </button>
 
               <a href="/cv.pdf" download className="btn btn-outline">
-                Descarcă CV ⬇
+                Download CV ⬇
               </a>
             </div>
 
             <div className="socials">
-              <span>GitHub</span>
-              <span>LinkedIn</span>
-              <span>Email</span>
-            </div>
+  <a href="https://github.com/teodora835" target="_blank">
+    GitHub
+  </a>
+
+  <a href="https://linkedin.com/in/teodora-cretoiu-0a421b37b/" target="_blank">
+    LinkedIn
+  </a>
+
+</div>
           </div>
 
           <div className="portrait-wrap">
@@ -215,8 +222,8 @@ useEffect(() => {
       </section>
 
       <section id="projects" className="projects">
-  <p className="section-label">Proiectele mele</p>
-  <h2 className="section-title">Lucrări personale</h2>
+  <p className="section-label">My Projects</p>
+  <h2 className="section-title">Personal Projects</h2>
 
   <div className="project-grid">
     {projects.map((project) => (
@@ -232,7 +239,7 @@ useEffect(() => {
             {project.stack}
           </span>
 
-          <button>Vezi detalii →</button>
+          <button>View Details →</button>
         </div>
       </article>
     ))}
@@ -240,15 +247,15 @@ useEffect(() => {
 </section>
     <section id="github" className="github-section">
   <div className="github-left">
-    <p className="section-label">Activitate GitHub</p>
+    <p className="section-label">GitHub Activity</p>
 
     <h2 className="section-title github-title">
-      Istoric commit-uri
+      Commit History
     </h2>
 
     <p className="github-text">
-      Mai jos sunt afișate cele mai recente commit-uri din repository-ul acestui proiect,
-      folosind GitHub API.
+      Here are the latest commits dynamically fetched from this
+       project's GitHub repository using the GitHub API.
     </p>
 
     <a
@@ -256,7 +263,7 @@ useEffect(() => {
       target="_blank"
       className="btn btn-outline"
     >
-      Vezi repository-ul
+      View Repository
     </a>
   </div>
 
@@ -281,8 +288,8 @@ useEffect(() => {
   </div>
 </section>
    <section id="cv" className="certificates">
-  <p className="section-label dark-label">CV & Participări</p>
-  <h2 className="section-title dark-title">Diplome și participări</h2>
+  <p className="section-label dark-label">CV & Achievements</p>
+  <h2 className="section-title dark-title">Certifications & Events</h2>
 
   <div className="single-carousel">
     <button className="carousel-arrow left-arrow" onClick={prevCert}>
@@ -321,7 +328,7 @@ useEffect(() => {
 
   <div className="cv-download">
     <a href="/cv.pdf" download className="btn btn-primary">
-      Descarcă CV complet
+      Download full CV ⬇
     </a>
   </div>
 </section>
