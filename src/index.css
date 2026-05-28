@@ -612,17 +612,39 @@ body {
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  max-height: 620px;
+  overflow-y: auto;
+
+  padding-right: 10px;
+}
+.commits-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.commits-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.commits-list::-webkit-scrollbar-thumb {
+  background: rgba(111, 135, 95, 0.45);
+  border-radius: 999px;
+}
+
+.commits-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(111, 135, 95, 0.7);
 }
 
 .commit-card {
   display: block;
   background: white;
-  padding: 24px;
+  padding: 18px 22px;
   border-radius: 22px;
   text-decoration: none;
   color: #12261a;
   box-shadow: 0 12px 35px rgba(18, 38, 26, 0.08);
   transition: 0.3s ease;
+  min-height: 115px;
 }
 
 .commit-card:hover {
@@ -632,16 +654,18 @@ body {
 .commit-card h3 {
   margin: 0 0 10px;
   font-family: Georgia, serif;
-  font-size: 22px;
+  font-size: 18px;
+  line-height: 1.3;
 }
 
 .commit-card p {
   margin: 0 0 10px;
   color: #5d6d57;
+  font-size: 15px;
 }
 
 .commit-card span {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   color: #6f875f;
 }
