@@ -16,7 +16,8 @@ body {
 .hero {
   min-height: 100vh;
   padding: 28px 72px;
-  background: linear-gradient(135deg, #f8f4ea, #eef2e6, #dfe8d6);
+  background: var(--hero-bg);
+  color: var(--text);
 }
 
 .nav {
@@ -63,14 +64,14 @@ body {
 }
 
 .btn-primary {
-  background: #6f875f;
+  background: var(--primary);
   color: white;
 }
 
 .btn-outline {
   border: 1px solid #6f875f;
   color: #12261a;
-  background: transparent;
+  border: 1px solid var(--primary);
 }
 
 .hero-grid {
@@ -81,7 +82,7 @@ body {
 }
 
 .eyebrow {
-  color: #6f875f;
+  color: var(--primary);
   letter-spacing: 4px;
   text-transform: uppercase;
   font-weight: 800;
@@ -124,7 +125,7 @@ body {
   width: 360px;
   height: 470px;
   border-radius: 180px 180px 0 0;
-  background: #6f875f;
+  background: var(--primary);
   opacity: 0.85;
 }
 
@@ -149,7 +150,7 @@ body {
 }
 
 .projects {
-  background: #12261a;
+  background: var(--dark-section);
   color: white;
   padding: 90px 72px;
 }
@@ -262,7 +263,7 @@ body {
 }
 .certificates {
   padding: 100px 72px;
-  background: #f6f3ea;
+  background: var(--bg);
 }
 
 .dark-label {
@@ -503,4 +504,53 @@ body {
 
 .right-arrow {
   right: -72px;
+}
+
+.theme-switcher {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-switcher button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  background: rgba(255,255,255,0.12);
+  transition: 0.25s ease;
+}
+
+.theme-switcher button:hover {
+  transform: translateY(-2px);
+}
+.app {
+  transition: all 0.4s ease;
+}
+
+.theme-forest {
+  --bg: #f6f3ea;
+  --hero-bg: linear-gradient(135deg, #f8f4ea, #eef2e6, #dfe8d6);
+  --text: #12261a;
+  --primary: #6f875f;
+  --secondary: #dfe8d6;
+  --dark-section: #12261a;
+}
+
+.theme-darkMode {
+  --bg: #101418;
+  --hero-bg: linear-gradient(135deg, #101418, #16211b, #263528);
+  --text: #f4f1e8;
+  --primary: #9ab68b;
+  --secondary: #263528;
+  --dark-section: #070b09;
+}
+
+.theme-cream {
+  --bg: #f7f1e8;
+  --hero-bg: linear-gradient(135deg, #f7f1e8, #ede0d4, #d6b89a);
+  --text: #3d3127;
+  --primary: #b08968;
+  --secondary: #ede0d4;
+  --dark-section: #5e503f;
 }

@@ -56,12 +56,38 @@ const certificates = [
     img: "https://placehold.co/900x500/edf1e8/12261a?text=Web+Workshop",
   },
 ];
+const themes = {
+  forest: {
+    background: "#f6f3ea",
+    text: "#12261a",
+    primary: "#6f875f",
+    secondary: "#dfe8d6",
+    dark: "#12261a",
+  },
+
+  darkMode: {
+    background: "#101418",
+    text: "#f3f3f3",
+    primary: "#7da27d",
+    secondary: "#1b242c",
+    dark: "#0c1115",
+  },
+
+  cream: {
+    background: "#f7f1e8",
+    text: "#3d3127",
+    primary: "#b08968",
+    secondary: "#ede0d4",
+    dark: "#5e503f",
+  },
+};
 function App() {
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
   const [activeCert, setActiveCert] = useState(0);
   const [selectedCert, setSelectedCert] = useState<(typeof certificates)[0] | null>(null);
+  const [theme, setTheme] = useState("forest");
   const nextCert = () => {
   setActiveCert((current) => (current + 1) % certificates.length);
 };
@@ -79,9 +105,21 @@ function App() {
 
   return () => clearInterval(interval);
 }, []);
+  useEffect(() => {
+  const savedTheme = localStorage.getItem("portfolio-theme");
 
+  if (savedTheme) {
+    setTheme(savedTheme);
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("portfolio-theme", theme);
+}, [theme]);
+  const currentTheme = themes[theme as keyof typeof themes];
   return (
-    <main>
+    <main className={`app theme-${theme}`}>
+
       <section className="hero">
         <nav className="nav">
           <div className="logo">
@@ -94,7 +132,13 @@ function App() {
             <a href="#github">GitHub</a>
             <a href="#cv">CV</a>
           </div>
+          <div className="theme-switcher">
+          <button onClick={() => setTheme("forest")}>Forest</button>
 
+          <button onClick={() => setTheme("darkMode")}>Dark</button>
+
+          <button onClick={() => setTheme("cream")}>Cream</button>
+          </div>
           <a href="/cv.pdf" download className="btn btn-primary">
             Descarcă CV
           </a>
