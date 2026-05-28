@@ -61,31 +61,7 @@ const certificates = [
     img: "https://placehold.co/900x500/edf1e8/12261a?text=Web+Workshop",
   },
 ];
-const themes = {
-  forest: {
-    background: "#f6f3ea",
-    text: "#12261a",
-    primary: "#6f875f",
-    secondary: "#dfe8d6",
-    dark: "#12261a",
-  },
 
-  darkMode: {
-    background: "#101418",
-    text: "#f3f3f3",
-    primary: "#7da27d",
-    secondary: "#1b242c",
-    dark: "#0c1115",
-  },
-
-  cream: {
-    background: "#f7f1e8",
-    text: "#3d3127",
-    primary: "#b08968",
-    secondary: "#ede0d4",
-    dark: "#5e503f",
-  },
-};
 type Commit = {
   sha: string;
   commit: {
@@ -102,7 +78,6 @@ function App() {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
   const [activeCert, setActiveCert] = useState(0);
-  const [selectedCert, setSelectedCert] = useState<(typeof certificates)[0] | null>(null);
   const [theme, setTheme] = useState("forest");
   const [commits, setCommits] = useState<Commit[]>([]);
   const nextCert = () => {
@@ -133,7 +108,7 @@ function App() {
 useEffect(() => {
   localStorage.setItem("portfolio-theme", theme);
 }, [theme]);
-  const currentTheme = themes[theme as keyof typeof themes];
+  
  useEffect(() => {
   fetch("https://api.github.com/repos/teodora835/web102-my_page/commits")
    .then((response) => response.json())
@@ -308,7 +283,7 @@ useEffect(() => {
 
     <article
       className="single-cert-card"
-      onClick={() => setSelectedCert(certificates[activeCert])}
+      onClick={() => alert(certificates[activeCert].details)}
     >
       <img
         src={certificates[activeCert].img}
