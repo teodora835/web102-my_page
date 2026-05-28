@@ -755,3 +755,21 @@ body {
     flex-wrap: wrap;
   }
 }
+.project-button {
+  display: inline-block;
+  margin-top: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.project-button:hover {
+  background: #dfe8d6;
+  color: #12261a;
+}

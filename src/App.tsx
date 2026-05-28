@@ -4,7 +4,8 @@ const projects = [
     title: "Ticket Management System",
     desc: "Designed a modular issue-tracking backend supporting tickets, users, milestones and comments with JSON-based command processing.",
     stack: "Java • OOP • Design Patterns",
-    img: "/images/ticket-system.png",
+    img: "/images/tickets.png",
+    link: "https://github.com/teodora835/ticket-management-system",
   },
 
   {
@@ -12,6 +13,7 @@ const projects = [
     desc: "Developed the interactive drawing interface using HTML, CSS and Canvas API, integrated with Flask backend and PyTorch CNN recognition.",
     stack: "JavaScript • Flask • PyTorch",
     img: "/images/drawar.png",
+    link: "https://github.com/OctaVianu8/DraWar",
   },
 
   {
@@ -19,6 +21,7 @@ const projects = [
     desc: "Built a full-stack web application with product filtering, sorting and cart management using Flask and Bootstrap.",
     stack: "Python • Flask • Bootstrap",
     img: "/images/ecommerce.png",
+    link: "https://github.com/teodora835/e-com",
   },
 ];
 const certificates = [
@@ -239,7 +242,14 @@ useEffect(() => {
             {project.stack}
           </span>
 
-          <button>View Details →</button>
+          <a
+    href={project.link}
+  target="_blank"
+  rel="noreferrer"
+  className="project-button"
+>
+  View Repository →
+</a>
         </div>
       </article>
     ))}
